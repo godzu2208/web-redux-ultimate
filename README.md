@@ -35,9 +35,9 @@ React-Redux v8 is written in TypeScript, so all types are automatically included
 # API Overview
 # Provider
 React Redux includes a <Provider /> component, which makes the Redux store available to the rest of your app:\
+
       import React from 'react'
       import ReactDOM from 'react-dom/client'
-      
       import { Provider } from 'react-redux'
       import store from './store'
       
@@ -50,3 +50,7 @@ React Redux includes a <Provider /> component, which makes the Redux store avail
           <App />
         </Provider>,
       )
+# Hooks
+React Redux provides a pair of custom React hooks that allow your React components to interact with the Redux store.
+
+<button>useSelector</button> reads a value from the store state and subscribes to updates, while <button>useDispatch</button>  returns the store's <button> dispatch</button>  method to let you dispatch actions.
