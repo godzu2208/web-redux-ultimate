@@ -10,10 +10,10 @@ The recommended way to start new apps with React and Redux is by using our offic
 Both of these already have Redux Toolkit and React-Redux configured appropriately for that build tool, and come with a small example app that demonstrates how to use several of Redux Toolkit's features.\
 # Vite with our Redux+TS template
 # (using the `degit` tool to clone and extract the template)
-npx degit reduxjs/redux-templates/packages/vite-template-redux my-app
+#npx degit reduxjs/redux-templates/packages/vite-template-redux my-app
 
 # Next.js using the `with-redux` template
-npx create-next-app --example with-redux my-app
+#npx create-next-app --example with-redux my-app
 
 # We do not currently have official React Native templates, but recommend these templates for standard React Native and for Expo:
 
@@ -25,10 +25,28 @@ npx create-next-app --example with-redux my-app
 To use React Redux with your React app, install it as a dependency:
 
 # If you use npm:
-npm install react-redux
+#npm install react-redux
 
 # Or if you use Yarn:
-yarn add react-redux
+#yarn add react-redux
 
-You'll also need to install Redux and set up a Redux store in your app.
+You'll also need to install Redux and set up a Redux store in your app.\
 React-Redux v8 is written in TypeScript, so all types are automatically included.
+# API Overview
+# Provider
+React Redux includes a <Provider /> component, which makes the Redux store available to the rest of your app:\
+      import React from 'react'
+      import ReactDOM from 'react-dom/client'
+      
+      import { Provider } from 'react-redux'
+      import store from './store'
+      
+      import App from './App'
+      
+      // As of React 18
+      const root = ReactDOM.createRoot(document.getElementById('root'))
+      root.render(
+        <Provider store={store}>
+          <App />
+        </Provider>,
+      )
