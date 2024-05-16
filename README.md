@@ -17,7 +17,7 @@ npx create-next-app --example with-redux my-app
 
 # We do not currently have official React Native templates, but recommend these templates for standard React Native and for Expo:
 
-[https://github.com/rahsheen/react-native-template-redux-typescript](https://github.com/rahsheen/react-native-template-redux-typescript)
+[https://github.com/rahsheen/react-native-template-redux-typescript](https://github.com/rahsheen/react-native-template-redux-typescript)\
 [https://github.com/rahsheen/expo-template-redux-typescript](https://github.com/rahsheen/expo-template-redux-typescript)
 
 # An Existing React App
@@ -28,7 +28,7 @@ To use React Redux with your React app, install it as a dependency:
 npm install react-redux
 
 # Or if you use Yarn:
-yarn add react-redux\
-You'll also need to install Redux and set up a Redux store in your app.\
+yarn add react-redux
 
+You'll also need to install Redux and set up a Redux store in your app.
 React-Redux v8 is written in TypeScript, so all types are automatically included.
