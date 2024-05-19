@@ -2,7 +2,8 @@
     - useState
     - useEffect
     - useContext
-    
+    - useDispatch ( replace to mapDispatchToProps )
+    - useSelector ( replace to mapStateToProps )
 # Added Hooks
     - useReducer
     - useCallback
