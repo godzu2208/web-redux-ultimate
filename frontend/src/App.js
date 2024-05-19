@@ -8,6 +8,8 @@ import {
 } from "./actions/action.js";
 
 import { useSelector, useDispatch } from 'react-redux';
+import axios from 'axios';
+import { useEffect } from 'react';
 
 function App(props) {
   const dispatch = useDispatch();
@@ -16,6 +18,15 @@ function App(props) {
       return state.counter.count
     }
   );
+  const fetchAllUser = async () => {
+    const res = await axios.get('http://localhost:8080/users/all')
+    const data = res && res.data ? res.data : [];
+    console.log(">>> check data res : ", data)
+  }
+
+  useEffect(() => {
+    fetchAllUser();
+  })
   const handleIncreaseClick = () => {
     // props.increaseCounterBtn()
     dispatch(increaseCounter())
