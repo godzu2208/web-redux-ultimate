@@ -1,53 +1,45 @@
-import logo from './logo.svg';
-import './styles/App.scss';
+// import logo from './logo.svg';
+// import './styles/App.scss';
 // import { connect } from "react-redux"
+import Home from './Components/Home.js';
+// import {
+//   increaseCounter,
+//   decreaseCounter,
+// } from "./actions/action.js";
 
-import {
-  increaseCounter,
-  decreaseCounter,
-} from "./actions/action.js";
+// import { useSelector, useDispatch } from 'react-redux';
 
-import { useSelector, useDispatch } from 'react-redux';
-import axios from 'axios';
-import { useEffect } from 'react';
 
 function App(props) {
-  const dispatch = useDispatch();
-  const newCount = useSelector(
-    (state) => {
-      return state.counter.count
-    }
-  );
-  const fetchAllUser = async () => {
-    const res = await axios.get('http://localhost:8080/users/all')
-    const data = res && res.data ? res.data : [];
-    console.log(">>> check data res : ", data)
-  }
+  // const dispatch = useDispatch();
+  // const newCount = useSelector(
+  //   (state) => {
+  //     return state.counter.count
+  //   }
+  // );
 
-  useEffect(() => {
-    fetchAllUser();
-  })
-  const handleIncreaseClick = () => {
-    // props.increaseCounterBtn()
-    dispatch(increaseCounter())
-  }
+  // const handleIncreaseClick = () => {
+  //   // props.increaseCounterBtn()
+  //   dispatch(increaseCounter())
+  // }
   // const handleDecreaseClick = () => {
   //   // props.decreaseCounter()
   //   dispatch(decreaseCounter())
   // }
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h2>Hello World with {props.abc} !!! </h2>
-        <div>Count: {newCount}</div>
+    // <div className="App">
+    //   <header className="App-header">
+    //     <img src={logo} className="App-logo" alt="logo" />
+    //     <h2>Hello World with {props.abc} !!! </h2>
+    //     <div>Count: {newCount}</div>
 
-        <button onClick={() => handleIncreaseClick()}>Increase Count</button>
+    //     <button onClick={() => handleIncreaseClick()}>Increase Count</button>
 
-        <button onClick={() => dispatch(decreaseCounter())}>Decrease Count</button>
-      </header>
-    </div>
+    //     <button onClick={() => dispatch(decreaseCounter())}>Decrease Count</button>
+    //   </header>
+    // </div>
+    <Home />
   );
 }
 

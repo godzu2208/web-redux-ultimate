@@ -1,34 +1,34 @@
-import { INCREMENT, DECREMENT } from '../actions/types.js';
+// import { INCREMENT, DECREMENT } from '../actions/types.js';
 
 
-const INITIAL_STATE = {
-    count: 0,
-    name: "ERIC",
-};
+// const INITIAL_STATE = {
+//     count: 0,
+//     name: "ERIC",
+// };
 
-const counterReducer = (state = INITIAL_STATE, action) => {
+// const counterReducer = (state = INITIAL_STATE, action) => {
 
-    switch (action.type) {
+//     switch (action.type) {
 
-        case INCREMENT:
+//         case INCREMENT:
 
-            return {
+//             return {
 
-                ...state, count: state.count + 1,
+//                 ...state, count: state.count + 1,
 
-            };
+//             };
 
-        case DECREMENT:
+//         case DECREMENT:
 
-            return {
-                ...state, count: state.count - 1,
+//             return {
+//                 ...state, count: state.count - 1,
 
-            };
+//             };
 
-        default: return state;
+//         default: return state;
 
-    }
+//     }
 
-};
+// };
 
-export default counterReducer;
+// export default counterReducer;
