@@ -2,7 +2,8 @@ import Container from "react-bootstrap/esm/Container";
 import Table from "react-bootstrap/esm/Table";
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchAllUsers } from "../actions/action";
+import { fetchAllUsers, deleteUserRedux } from "../actions/action";
+
 const TableUser = (props) => {
 
     const listUsers = useSelector((state) => state.user.listUsers);
@@ -11,7 +12,7 @@ const TableUser = (props) => {
     const dispatch = useDispatch();
 
     const handleDeleteUser = (user) => {
-        alert("Delete")
+        dispatch(deleteUserRedux(user.id));
     }
     const handleEditUser = (user) => {
         alert("Edit")
@@ -67,7 +68,7 @@ const TableUser = (props) => {
                                                             <button
                                                                 style={{ margin: '2px' }}
                                                                 className="btn btn-danger"
-                                                                onClick={() => handleDeleteUser(item)}>
+                                                                onClick={() => handleDeleteUser(item.id)}>
                                                                 Delete
                                                             </button>
                                                         </td>

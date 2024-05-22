@@ -1,7 +1,8 @@
 // import { INCREMENT, DECREMENT } from '../actions/types.js';
 import {
     FETCH_USER_ERROR, FETCH_USER_REQUEST, FETCH_USER_SUCCESS, FETCH_USER_API_SUCCESS,
-    CREATE_USER_ERROR, CREATE_USER_SUCCESS, CREATE_USER_REQUEST
+    CREATE_USER_ERROR, CREATE_USER_SUCCESS, CREATE_USER_REQUEST,
+    DELETE_USER_ERROR, DELETE_USER_REQUEST, DELETE_USER_SUCCESS
 } from '../actions/types.js';
 
 const INITIAL_STATE = {
@@ -45,7 +46,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
             };
 
         case FETCH_USER_ERROR:
-            console.log("FETCH_USER_ERROR :", action)
+            // console.log("FETCH_USER_ERROR :", action)
             return {
                 ...state,
                 isLoading: false,
@@ -66,6 +67,20 @@ const userReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 isCreating: false
+            }
+        // delete user
+        case DELETE_USER_REQUEST:
+            return {
+                ...state
+            }
+        case DELETE_USER_SUCCESS:
+            return {
+                ...state,
+
+            }
+        case DELETE_USER_ERROR:
+            return {
+                ...state,
             }
         default:
             return state;
