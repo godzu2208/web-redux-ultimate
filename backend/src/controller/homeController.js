@@ -9,15 +9,15 @@ const handleUserPage = async (req, res) => {
     let userList = await userService.getUserList();
     return res.render("user.ejs", { userList });
 }
-
+// 22/05/2024
 const handleCreateNewUser = (req, res) => {
+
     let email = req.body.email;
     let password = req.body.password;
     let username = req.body.username;
-
-
     userService.createNewUser(email, password, username);
     return res.redirect("/user");
+
 }
 
 const handleDelteUser = async (req, res) => {
@@ -49,7 +49,7 @@ const handleUserGetAPI = async (req, res) => {
     setTimeout(async () => {
         let userList = await userService.getUserList();
         return res.status(200).json(userList);
-    }, 100)
+    }, 200)
 
 }
 

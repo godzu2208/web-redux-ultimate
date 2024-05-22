@@ -1,24 +1,25 @@
 import Container from "react-bootstrap/esm/Container";
 import Table from "react-bootstrap/esm/Table";
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchAllUsers } from "../actions/action";
 const TableUser = (props) => {
 
-    const listUsers = useSelector((state) => state.user.listUsers)
+    const listUsers = useSelector((state) => state.user.listUsers);
+    const isLoading = useSelector((state) => state.user.isLoading);
+    const isError = useSelector((state) => state.user.isError);
     const dispatch = useDispatch();
 
     const handleDeleteUser = (user) => {
-        console.log(">>> handle delete user :", user);
+        alert("Delete")
     }
     const handleEditUser = (user) => {
-
+        alert("Edit")
     }
 
     useEffect(() => {
         dispatch(fetchAllUsers());
-
-    }, [])
+    }, [dispatch])
 
 
     return (
@@ -38,30 +39,46 @@ const TableUser = (props) => {
                             </tr>
                         </thead>
                         <tbody>
-                            {listUsers && listUsers.length > 0 && listUsers.map((item, index) => {
-                                return (
-                                    <tr key={`users-${index}`}>
-                                        <td>{index + 1}</td>
-                                        <td>{item.email}</td>
-                                        <td>{item.username}</td>
-                                        <td>
-                                            <button
-                                                style={{ margin: '2px' }}
-                                                className="btn btn-warning"
-                                                onClick={() => handleEditUser(item)}>
-                                                Edit
-                                            </button>
-                                            <button
-                                                style={{ margin: '2px' }}
-                                                className="btn btn-danger"
-                                                onClick={() => handleDeleteUser(item)}>
-                                                Delete
-                                            </button>
-                                        </td>
+                            {isError === true ?
+                                <>
+                                    <div>Something is wrong !!! Please try again ...</div>
+                                </>
+                                :
+                                <>
+                                    {isLoading === true ?
+                                        <>
+                                            <div>Loading data ...</div>
+                                        </>
+                                        :
+                                        <>
+                                            {listUsers && listUsers.length > 0 && listUsers.map((item, index) => {
+                                                return (
+                                                    <tr key={`users-${index}`}>
+                                                        <td>{index + 1}</td>
+                                                        <td>{item.email}</td>
+                                                        <td>{item.username}</td>
+                                                        <td>
+                                                            <button
+                                                                style={{ margin: '2px' }}
+                                                                className="btn btn-warning"
+                                                                onClick={() => handleEditUser(item)}>
+                                                                Edit
+                                                            </button>
+                                                            <button
+                                                                style={{ margin: '2px' }}
+                                                                className="btn btn-danger"
+                                                                onClick={() => handleDeleteUser(item)}>
+                                                                Delete
+                                                            </button>
+                                                        </td>
 
-                                    </tr>
-                                )
-                            })}
+                                                    </tr>
+                                                )
+                                            })}
+                                        </>}
+
+                                </>}
+
                         </tbody>
                     </table>
                 </Table>
