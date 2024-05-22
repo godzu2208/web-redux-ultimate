@@ -105,7 +105,7 @@ Both of these already have Redux Toolkit and React-Redux configured appropriatel
 # Vite with our Redux+TS template
 # (using the `degit` tool to clone and extract the template)
 npx degit reduxjs/redux-templates/packages/vite-template-redux my-app
-Learning React Redux
+# Learning React Redux
 Learn Modern Redux Livestream
 Redux maintainer Mark Erikson appeared on the "Learn with Jason" show to explain how we recommend using Redux today. The show includes a live-coded example app that shows how to use Redux Toolkit and React-Redux hooks with Typescript, as well as the new RTK Query data fetching APIs.
 
