@@ -62,15 +62,13 @@ There's also a [Deep Dive into React-Redux](https://blog.isquaredsoftware.com/20
 
 [MIT](LICENSE.md)
 
-# chat 
-
-Getting Started with React Redux
+# Getting Started with React Redux
 React Redux is the official React UI bindings layer for Redux. It lets your React components read data from a Redux store, and dispatch actions to the store to update state.
 
-Installation
+# Installation
 React Redux 8.x requires React 16.8.3 or later / React Native 0.59 or later, in order to make use of React Hooks.
 
-Create a React Redux App
+# Create a React Redux App
 The recommended way to start new apps with React and Redux is by using our official Redux+TS template for Vite, or by creating a new Next.js project using Next's with-redux template.
 Both of these already have Redux Toolkit and React-Redux configured appropriately for that build tool, and come with a small example app that demonstrates how to use several of Redux Toolkit's features.
 
@@ -85,9 +83,6 @@ as well as the new RTK Query data fetching APIs.
 
 # See the Learn Modern Redux show notes page for a transcript and links to the example app source.
 
-
-markdown
-Copy code
 # Getting Started with React Redux
 
 React Redux is the official React UI bindings layer for Redux. It lets your React components read data from a Redux store, and dispatch actions to the store to update state.
@@ -115,9 +110,6 @@ Help and Discussion
 The #redux channel of the Reactiflux Discord community is our official resource for all questions related to learning and using Redux.
 
 For more details, visit the official React Redux documentation.
-
-less
-Copy code
 
 ### Các bước để tải nội dung này lên GitHub:
 
