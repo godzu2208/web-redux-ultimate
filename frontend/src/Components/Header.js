@@ -1,48 +1,51 @@
-const Header = (props) => {
+import React from 'react';
+import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { useSelector } from 'react-redux';
+const Header = () => {
+    const listUsers = useSelector((state) => state.user.listUsers);
     return (
-        <>
-            <nav className="navbar navbar-expand-lg navbar-dark" style={{ background: 'linear-gradient(135deg, #153677, #4e085f)' }}>
-                <div className="container-fluid">
-                    <a className="navbar-brand" href="/">React</a>
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="/">Todo</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link active" href="/link">User</a>
-                            </li>
-                            <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle active" href="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Dropdown
-                                </a>
-                                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a className="dropdown-item" href="/action">Action</a></li>
-                                    <li><a className="dropdown-item" href="/another-action">Another action</a></li>
-                                    <li><hr className="dropdown-divider" /></li>
-                                    <li><a className="dropdown-item" href="/something-else">Something else here</a></li>
-                                </ul>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link active" href="/" tabIndex="-1" aria-disabled="true">Tutorial</a>
-                            </li>
-                        </ul>
-                        <form className="d-flex">
-                            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                            <button className="btn btn-outline-success" type="submit">Search</button>
-                        </form>
+        <Navbar bg="dark" variant="dark" expand="lg" style={{ background: 'linear-gradient(135deg, #153677, #4e085f)' }}>
+            <div className="container-fluid">
+                <Navbar.Brand href="/">React</Navbar.Brand>
+                <Navbar.Toggle aria-controls="navbarSupportedContent" />
+                <Navbar.Collapse id="navbarSupportedContent">
+                    <Nav className="me-auto mb-2 mb-lg-0">
+                        <Nav.Link href="/">Todo</Nav.Link>
+                        <Nav.Link href="/link">User</Nav.Link>
+                        <NavDropdown title={`Users (${listUsers.length})`} id="navbarDropdown">
+                            {listUsers && listUsers.length > 0 &&
+                                listUsers.map((item, index) => {
+                                    return (
+                                        <NavDropdown.Item
+                                            key={`user-${index}`}
+                                            href="#">
+                                            {item.email}
+                                        </NavDropdown.Item>
+                                    )
+                                })
 
-                    </div>
-                    {/* <div className="d-flex">
-                        <button>Sign In</button>
-                        <button>Sign Up</button>
-                    </div> */}
-                </div>
-            </nav>
-        </>
-    )
-}
+                            }
+                            <NavDropdown.Item href="/something-else">
+                                <button style={{ marginLeft: "200px" }} type="button" class="btn-close" aria-label="Close"></button>
+                            </NavDropdown.Item>
+                        </NavDropdown>
+
+                        <Nav.Link href="/" tabIndex="-1" aria-disabled="true">Tutorial</Nav.Link>
+                    </Nav>
+                    <Form className="d-flex">
+                        <FormControl
+                            type="search"
+                            placeholder="Search"
+                            className="me-2"
+                            aria-label="Search"
+                        />
+                        <Button variant="outline-success" type="submit">Search</Button>
+                    </Form>
+                </Navbar.Collapse>
+            </div>
+        </Navbar >
+    );
+};
+
 export default Header;
