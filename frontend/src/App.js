@@ -2,6 +2,9 @@
 // import './styles/App.scss';
 // import { connect } from "react-redux"
 import Home from './Components/Home.js';
+import RegisterComponent from './Components/RegisterComponent.js';
+import LoginComponent from './Components/LoginComponent.js';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 // import {
 //   increaseCounter,
 //   decreaseCounter,
@@ -39,7 +42,14 @@ function App(props) {
     //     <button onClick={() => dispatch(decreaseCounter())}>Decrease Count</button>
     //   </header>
     // </div>
-    <Home />
+    // <Home />
+    <BrowserRouter>
+      <Switch>
+        <Route path="/register" component={RegisterComponent} />
+        <Route path="/login" component={LoginComponent} />
+        <Route path="/" component={Home} />
+      </Switch>
+    </BrowserRouter>
   );
 }
 

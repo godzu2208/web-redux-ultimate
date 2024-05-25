@@ -15,6 +15,8 @@ const FormListUser = (props) => {
     const [password, setPassword] = useState("");
     const [username, setUsername] = useState("");
     const isCreating = useSelector((state) => state.user.isCreating);
+
+    
     const handleClickAddNewUser = () => {
         dispatch(createNewUserRedux(email, password, username));
         setEmail("");

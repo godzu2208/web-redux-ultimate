@@ -12,7 +12,7 @@ const Header = () => {
                 <Navbar.Collapse id="navbarSupportedContent">
                     <Nav className="me-auto mb-2 mb-lg-0">
                         <Nav.Link href="/">Todo</Nav.Link>
-                        <Nav.Link href="/link">User</Nav.Link>
+                        <Nav.Link href="/link">Form</Nav.Link>
                         <NavDropdown title={`Users (${listUsers.length})`} id="navbarDropdown">
                             {listUsers && listUsers.length > 0 &&
                                 listUsers.map((item, index) => {
